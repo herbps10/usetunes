@@ -1,0 +1,8 @@
+
+- if @items[0].title.slice(0, 5) == "Error"
+	Nothing was found
+- else
+	- @items.each do |item|
+		%p
+			=item.title
+			%a{:href => '/sab/' + NZBMatrix.get_id(item).to_s} send to sab

@@ -1,4 +1,11 @@
-- @albums.each do |album|
-	%img{:src => (album/"image[size=small]")}
-	%p
-		=(album/"name:first").innerHTML
+%table
+	- @albums.each do |album|
+		%tr
+			%td
+				%img{:src => (album/"image[@size=large]").innerHTML}
+			%td
+				%p
+					=(album/"name:first").innerHTML
+			%td
+				- term = (album/"name:first").innerHTML + " " + @artist
+				%a{:href => '/nzbmatrix/' + term} nzbmatrix
